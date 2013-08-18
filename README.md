@@ -71,9 +71,9 @@ if you want to use `venv` for different version of python instead of the default
 Available aliases are: `venv25`, `venv26`, `venv27`, `venv30`, `venv31`, `venv32`, `venv33`, `venv34`
 
 
-#Requirements 
+#Requirements
 
-* Python 2.6+w
+* Python 2.6+
 * bash-completion
 
 # Installation
