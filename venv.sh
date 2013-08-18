@@ -5,19 +5,20 @@ VIRTUALENVS_DIR=~/.virtualenvs
 
 function venv {
 
-   thecmd=$1;
+   local thecmd=$1;
+   local name="";
 
-    aliases=( "c:create" "a:activate" "e:export" )
+    local aliases=( "c:create" "a:activate" "e:export" )
     for alias_dict in ${aliases[@]}
     do
-        alias=$(echo $alias_dict|awk -F ':' '{print $1}');
+        local alias=$(echo $alias_dict|awk -F ':' '{print $1}');
         if [ "$thecmd" == "$alias" ]; then
-            cmd=$(echo $alias_dict|awk -F ':' '{print $2}');
+            local cmd=$(echo $alias_dict|awk -F ':' '{print $2}');
         fi
-    done 
+    done
 
     if [ -z "$cmd" ]; then
-        cmd="$thecmd";
+        local cmd="$thecmd";
     fi
 
     if [ "$cmd" == "create" ]; then
@@ -27,7 +28,7 @@ function venv {
             echo "Please enter name of the new env";
             return 1;
         fi
-            
+
         _virtualenv $VIRTUALENVS_DIR/$name --no-site-packages;
         return 0;
     fi
@@ -39,7 +40,7 @@ function venv {
             echo "Please enter name of the env which wants to activate";
             return 1;
         fi
-            
+
         source $VIRTUALENVS_DIR/$name/bin/activate;
         return 0;
     fi
@@ -51,7 +52,7 @@ function venv {
             echo "Please enter name of the env which wants to export";
             return 1;
         fi
-            
+
         pip freeze -E $VIRTUALENVS_DIR/$name >  $name-requirements.txt;
         return 0;
     fi
@@ -67,5 +68,22 @@ function venv {
 }
 
 function _virtualenv {
-    python $VIRTUALENV_PATH $@
+    local py_ver=$1;
+    local all_but_first="${*:2}"
+    local py=`which python$py_ver`;
+    if [ -z $py ]; then
+        echo "Python $py_ver is not installed."
+    else
+        $py $VIRTUALENV_PATH $all_but_first
+        return 0;
+    fi
 }
+
+alias _virtualenv25="_virtualenv 2.5"
+alias _virtualenv26="_virtualenv 2.6"
+alias _virtualenv27="_virtualenv 2.7"
+alias _virtualenv30="_virtualenv 3.0"
+alias _virtualenv31="_virtualenv 3.1"
+alias _virtualenv32="_virtualenv 3.2"
+alias _virtualenv33="_virtualenv 3.3"
+alias _virtualenv34="_virtualenv 3.4"
