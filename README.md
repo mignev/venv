@@ -1,6 +1,8 @@
 Venv
 =======
 
+[![Build Status](https://travis-ci.org/mignev/venv.png?branch=master)](https://travis-ci.org/mignev/venv)
+
 So the idea behind `venv` is to be just an simple tool that will helps you when you work with [virtualenv.py](http://www.virtualenv.org/). `venv` gives you some aliases that will helps you to `create`, `activate` and `export` your virtual environments with ease :)
 
 
