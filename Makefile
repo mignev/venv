@@ -2,6 +2,7 @@ all: help
 
 help:
     @echo "  install        to install venv   "
+    @echo "  installc       to install venv bash complation   "
     @echo "  test           to run all tests  "
     @echo "  uninstall      to uninstall venv "
 
@@ -9,6 +10,13 @@ install:
     @echo "Installing ..."
     @echo "Making some dirs in you home ..."
     @echo ''
+
+    @if test -d ~/.virtualenvs; then \
+        echo "~/.virtualenvs is already exist."; \
+    else \
+        mkdir -p ~/.virtualenvs; \
+        echo "Add .virtualenvs dir in ${HOME}"; \
+    fi
 
     @if test -d ~/.python; then \
         echo "~/.python is already exist."; \
@@ -40,6 +48,9 @@ install:
         echo "Adding venv.sh to bashrc"; \
         echo '\nsource ~/.venv/venv.sh' >> ~/.bashrc; \
     fi
+
+installc:
+    @echo "TODO"
 
 test:
     @echo "TODO"

@@ -2,6 +2,7 @@
 
 VIRTUALENV_PATH=~/.python/virtualenv.py
 VIRTUALENVS_DIR=~/.virtualenvs
+VENV_VERSION="0.2"
 
 function venv {
 
@@ -62,6 +63,11 @@ function venv {
         return 0;
     fi
 
+    if [ "$cmd" == "version" ]; then
+        echo $VENV_VERSION;
+        return 0;
+    fi
+
     _virtualenv;
     return 0;
 
@@ -79,11 +85,11 @@ function _virtualenv {
     fi
 }
 
-alias _virtualenv25="_virtualenv 2.5"
-alias _virtualenv26="_virtualenv 2.6"
-alias _virtualenv27="_virtualenv 2.7"
-alias _virtualenv30="_virtualenv 3.0"
-alias _virtualenv31="_virtualenv 3.1"
-alias _virtualenv32="_virtualenv 3.2"
-alias _virtualenv33="_virtualenv 3.3"
-alias _virtualenv34="_virtualenv 3.4"
+alias venv25="_virtualenv 2.5"
+alias venv26="_virtualenv 2.6"
+alias venv27="_virtualenv 2.7"
+alias venv30="_virtualenv 3.0"
+alias venv31="_virtualenv 3.1"
+alias venv32="_virtualenv 3.2"
+alias venv33="_virtualenv 3.3"
+alias venv34="_virtualenv 3.4"
