@@ -2,7 +2,7 @@ all: help
 
 help:
 	@echo "  install        to install venv   "
-	@echo "  installc       to install venv bash complation   "
+	@echo "  installc       to install venv bash completion   "
 	@echo "  test           to run all tests  "
 	@echo "  uninstall      to uninstall venv "
 
@@ -50,7 +50,16 @@ install:
 	fi
 
 installc:
-	@echo "TODO"
+	@echo "Installing venv completions "
+	@if test -f ~/.venv/venv-completion.bash; then \
+		echo "~/.venv/venv-completion.bash is already exist."; \
+	else \
+		cp completion/venv-completion.bash ~/.venv/; \
+		echo "~/.venv/venv-completion.bash is installed successful."; \
+		echo ''; \
+		echo "Adding venv-completion.bash to bashrc"; \
+		echo '\nsource ~/.venv/venv-completion.bash' >> ~/.bashrc; \
+	fi
 
 test:
 	@echo "TODO"
