@@ -3,4 +3,10 @@ python:
   - "2.7"
 # command to run tests
 script:
-  - make
+  - source venv.sh
+  - make install
+  - venv create mynewenv
+  - venv c mynewcenv
+  - venv export mynewenv
+  - venv26 c mynew26env
+  - python tests/venv_tests.py
