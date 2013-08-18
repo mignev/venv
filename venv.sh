@@ -54,7 +54,7 @@ function venv {
             return 1;
         fi
 
-        pip freeze -E $VIRTUALENVS_DIR/$name >  $name-requirements.txt;
+        pip freeze $VIRTUALENVS_DIR/$name >  $name-requirements.txt;
         return 0;
     fi
 
