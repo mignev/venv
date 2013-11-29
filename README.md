@@ -64,9 +64,9 @@ The `venv` way is:
 	venv ls
 
 # More shortcuts
-if you want to use `venv` for different version of python instead of the default version `venv` gives you some aliases that will helps you to do that. If you want to create new `python 2.5` virtual environment you must just the following:
+if you want to use `venv` for different version of python instead of the default version `venv` gives you some aliases that will helps you to do that. If you want to create new `python 2.7` virtual environment you must just the following:
 
-	venv25 create my_new_py25_env
+	venv27 create my_new_py27_env
 
 Available aliases are: `venv25`, `venv26`, `venv27`, `venv30`, `venv31`, `venv32`, `venv33`, `venv34`
 
@@ -85,7 +85,7 @@ Available aliases are: `venv25`, `venv26`, `venv27`, `venv30`, `venv31`, `venv32
 # Uninstallation
 
     # cd venv
-    # make install
+    # make uninstall
 
 # Venv completions
 In `completion` directory you will find file with name `venv-completion.bash`.
